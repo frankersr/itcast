@@ -109,4 +109,44 @@ public class EmployeeController {
 
     }
 
+    /**
+     * 员工状态修改
+     * @param status
+     * @param id
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    @ApiOperation("员工状态修改")
+    public Result startAndStop(@PathVariable Integer status,Long id){
+
+        employeeService.startAndStop(status,id);
+        return Result.success();
+
+    }
+
+
+    /**
+     * 根据id查询员工信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    @ApiOperation("根据id查询员工信息")
+    public Result<Employee> getById(@PathVariable Long id){
+        Employee employee=employeeService.getById(id);
+        return Result.success(employee);
+    }
+
+
+    /**
+     * 修改员工信息
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("修改员工信息")
+    public Result changeEmpInfo(@RequestBody EmployeeDTO employeeDTO){
+        employeeService.changeEmpInfo(employeeDTO);
+        return Result.success();
+    }
+
 }
