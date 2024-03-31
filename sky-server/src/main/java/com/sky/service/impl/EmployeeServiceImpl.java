@@ -75,12 +75,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         //给po对象赋值
         BeanUtils.copyProperties(employeeDTO,employee);
         //其他值也赋上
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
+//        employee.setCreateTime(LocalDateTime.now());
+//        employee.setUpdateTime(LocalDateTime.now());
 
         //TODO 更新和创建人需要依据实际操作人，现是固定，只为演示(已解决）
-        employee.setCreateUser(BaseContext.getCurrentId());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+//        employee.setCreateUser(BaseContext.getCurrentId());
+//        employee.setUpdateUser(BaseContext.getCurrentId());
 
         employee.setStatus(StatusConstant.ENABLE);
 
@@ -147,8 +147,8 @@ public class EmployeeServiceImpl implements EmployeeService {
             //转换类型
             BeanUtils.copyProperties(employeeDTO,employee);
             //因为前端没传修改时间和修改人id，我们需要手动添加
-            employee.setUpdateTime(LocalDateTime.now());
-            employee.setUpdateUser(BaseContext.getCurrentId());
+//            employee.setUpdateTime(LocalDateTime.now());
+//            employee.setUpdateUser(BaseContext.getCurrentId());
 
             employeeMapper.update(employee);
 
